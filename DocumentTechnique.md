@@ -28,7 +28,3 @@
 - **Affichage des Rappels dans un Groupe :**
   - Route `/groupe/:id`.
 
-### Suggestions d'Amélioration
-
-- Commenter le code pour expliquer la logique des différentes routes.
-- Regrouper les fonctionnalités connexes dans des modules distincts pour une meilleure organisation.
