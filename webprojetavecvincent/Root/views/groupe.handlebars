@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remindr - Créer un Groupe</title>
+    <link rel="stylesheet" href="../public/style.css">
+</head>
+<body>
+
+{{>header}}
+
+{{>nav}}
+
+<section>
+    <div class="dashboard-container">
+        <div class="form-container">
+            <h2>Créer un Groupe</h2>
+            <form action="groupe/createGroupe" method="post" id="createGroupForm">
+                <input type="text" name="groupName" placeholder="Nom du groupe" required>
+                <input type="text" name="members" placeholder="Membres (séparés par des virgules)" required>
+                <button type="submit">Créer le groupe</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{{>footer}}
+
+</body>
+</html>

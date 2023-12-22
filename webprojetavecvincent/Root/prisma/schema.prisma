@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String? @unique
+  mpd   String
+  // Ajout du champ opposé pour la relation
+  groups Groups[] 
+}
+
+model Groups {
+  id      Int    @id @default(autoincrement())
+  nomGroup String @db.VarChar(50) @unique
+  // Ajout du champ opposé pour la relation
+  users Users[] 
+  rappels Rappel[]
+}
+
+model Rappel {
+  id           Int      @id @default(autoincrement())
+  nom          String
+  description  String?
+  dateEcheance DateTime
+  couleur      String
+  // Relation avec le groupe
+  groupId      Int
+  group        Groups @relation(fields: [groupId], references: [id])
+}
+
+

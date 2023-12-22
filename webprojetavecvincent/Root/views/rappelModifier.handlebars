@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remindr - RappelModifier</title>
+    <link rel="stylesheet" href="../public/style.css">
+</head>
+<body>
+
+ <h2 class = "titre">{{groupName}}</h2>
+<script>
+    // Script pour mettre à jour la couleur sélectionnée en temps réel
+    const colorInput = document.getElementById('reminderColor');
+    const colorPreview = document.getElementById('colorPreview');
+
+    colorInput.addEventListener('input', () => {
+        colorPreview.style.backgroundColor = colorInput.value;
+    });
+</script>
+<section>
+    <div class="dashboard-container">
+        <div class="form-container">
+            <h2>Modifier un rappel</h2>
+            <form action="rappelModifier" method="post" id="createGroupForm">
+                <input type="text" name="name" placeholder="Nom du rappel" value = {{name}} required>
+                <input type="text" name="bio" placeholder="Description"value = {{bio}} required>
+                <input type="date" name="date" value = {{date}} required>
+                <input type="time" name="time" value = {{time}} required> 
+                <label for="color">Choisir la couleur</label>
+                <input type="color" name="color" value = {{color}} required>
+                <div class="color-preview" id="colorPreview"></div>
+                <input type="hidden" name="idRappel" value={{id}}>
+                <button type="submit">Modifier</button>
+            </form>
+        </div>
+    </div>
+</section>
